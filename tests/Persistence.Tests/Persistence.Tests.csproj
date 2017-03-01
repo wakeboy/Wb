@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <AssemblyName>Wb.Persistence.Tests</AssemblyName>
+    <RootNamespace>Wb.Persistence.Tests</RootNamespace>
+  </PropertyGroup>
+
+</Project>
