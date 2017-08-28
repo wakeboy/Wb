@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Wb.PersistenceExample</AssemblyName>
     <RootNamespace>Wb.PersistenceExample</RootNamespace>
   </PropertyGroup>
@@ -14,8 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Core\Core.csproj" />
-    <ProjectReference Include="..\..\src\Domain\Domain.csproj" />
-    <ProjectReference Include="..\..\src\Persistence\Persistence.csproj" />
+    <ProjectReference Include="..\..\src\PersistenceCore\PersistenceCore.csproj" />
   </ItemGroup>
 
 </Project>

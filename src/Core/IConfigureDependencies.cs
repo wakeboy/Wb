@@ -1,8 +1,8 @@
-﻿using Autofac;
+using Autofac;
 
 namespace Wb.Core
 {
-    public interface IConfigureAutofac
+    public interface IConfigureDependencies
     {
         void Register(ContainerBuilder builder);
     }

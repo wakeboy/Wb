@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Reflection;
 using System.Collections.Generic;
-using Microsoft.Extensions.DependencyModel;
 using System.Linq;
 using System.Diagnostics;
 using System.Runtime.Loader;
 using Autofac;
+using System.Text.RegularExpressions;
 
 namespace Wb.Core
 {
@@ -16,36 +16,26 @@ namespace Wb.Core
     {
         public static void RegisterAutofac(ContainerBuilder builder, string assemblyPrefix = "Wb.")
         {
-            var types = GetTypesWithInterface(typeof(IConfigureAutofac), assemblyPrefix);
-            var implementations = types.Select(t => t.CreateInstance<IConfigureAutofac>()).ToList();
+            var types = GetTypesWithInterface(typeof(IConfigureDependencies), assemblyPrefix);
+            var implementations = types.Select(t => t.CreateInstance<IConfigureDependencies>()).ToList();
             
             implementations.ForEach(i => i.Register(builder));
         }
 
         /// <summary>
-        /// Gets a lost of all types in the current domain that implement an interface
+        /// Gets a list of all types in the current domain that implement an interface
         /// </summary>
         /// <param name="type">Type type the interface must implement</param>
-        /// <param name="assemblyPrefix">The assembly prefix</param>
+        /// <param name="assembleyFilter">The assembly prefix</param>
         /// <returns></returns>
-        public static IEnumerable<Type> GetTypesWithInterface(Type interfaceType, string assemblyPrefix)
+        public static IEnumerable<Type> GetTypesWithInterface(Type interfaceType, string assembleyFilter)
         {
-            List<Type> interfaceList = new List<Type>();
-
-            foreach (ProcessModule module in Process.GetCurrentProcess().Modules)
-            {
-                if (module.ModuleName.StartsWith(assemblyPrefix))
-                {
-                   var assemblyName = AssemblyLoadContext.GetAssemblyName(module.FileName);
-                    var assembly = Assembly.Load(assemblyName);
-
-                    interfaceList.AddRange(assembly.GetTypes()
-                                       .Where(t => t.GetInterfaces()
-                                                    .Any(i => i == interfaceType)));
-                };
-            }
-
-            return interfaceList;
+            return AppDomain.CurrentDomain
+                            .GetAssemblies()
+                            .Where(a => string.IsNullOrEmpty(assembleyFilter) || Regex.IsMatch(a.FullName, assembleyFilter))
+                            .SelectMany(a => a.GetTypes())
+                            .Where(t => t.GetInterfaces()
+                                        .Any(i => i == interfaceType));
         }
 
         /// <summary>

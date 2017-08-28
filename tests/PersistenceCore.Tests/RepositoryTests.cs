@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Wb.Persistence.Tests
+namespace Wb.PersistenceCore.Tests
 {
     public class RepositoryTests
     {

@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Wb.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Wb.PersistenceCore;
 using Wb.PersistenceExample.Entities;
 
 namespace Wb.PersistenceExample.Repository

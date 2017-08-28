@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Wb.Domain;
+using Wb.DomainCore;
 
 namespace Wb.PersistenceExample.Entities
 {

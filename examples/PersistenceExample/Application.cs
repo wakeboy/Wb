@@ -1,5 +1,5 @@
-﻿using System;
-using Wb.Persistence;
+using System;
+using Wb.PersistenceCore;
 using Wb.PersistenceExample.Entities;
 
 namespace Wb.PersistenceExample
@@ -17,17 +17,17 @@ namespace Wb.PersistenceExample
 
         public void Start()
         {
-            productRepository.Insert(new Product { Id = 1, Name = "Product" });
-            productRepository.Save();
+            this.productRepository.Insert(new Product { Id = 1, Name = "Product" });
+            this.productRepository.Save();
 
-            var contacts = contactRepository.GetAll();
+            var contacts = this.contactRepository.GetAll();
             
             foreach(var c in contacts)
             {
                 Console.WriteLine(c.FirstName);
             }
             
-            Console.WriteLine(productRepository == null);
+            Console.WriteLine(this.productRepository == null);
             Console.WriteLine("Starting Application");
         }
     }

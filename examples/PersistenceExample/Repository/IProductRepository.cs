@@ -1,4 +1,4 @@
-﻿using Wb.Persistence;
+using Wb.PersistenceCore;
 using Wb.PersistenceExample.Entities;
 
 namespace Wb.PersistenceExample.Repository

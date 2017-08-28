@@ -1,17 +1,17 @@
-﻿using Autofac;
+using Autofac;
 using Wb.Core;
-using Wb.Persistence;
+using Wb.PersistenceCore;
 using Wb.PersistenceExample.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Wb.PersistenceExample.Startup
 {
-    public class PersistanceConfiguration : IConfigureAutofac
+    public class PersistanceConfiguration : IConfigureDependencies
     {
         public void Register(ContainerBuilder builder)
         {
             var contextOptions = new DbContextOptionsBuilder()
-                                .UseSqlServer(@"Server=.\sqlexpress;Database=Demo;Trusted_Connection=True;")
+                                .UseSqlServer(@"Server=localhost;Database=Demo;Trusted_Connection=True;")
                                 .Options;
 
             builder.RegisterGeneric(typeof(WbDbContext<>))

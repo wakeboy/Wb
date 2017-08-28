@@ -6,7 +6,7 @@ using Wb.Core;
 
 namespace Wb.PersistenceExample.Startup
 {
-    public class AppConfiguration : IConfigureAutofac
+    public class AppConfiguration : IConfigureDependencies
     {
         public void Register(ContainerBuilder builder)
         {

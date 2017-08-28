@@ -1,4 +1,4 @@
-﻿namespace Wb.Domain
+namespace Wb.DomainCore
 {
     public abstract class Entity
     {

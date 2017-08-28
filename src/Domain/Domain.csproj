@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>Wb.Domain</AssemblyName>
-    <RootNamespace>Wb.Domain</RootNamespace>
-  </PropertyGroup>
-
-</Project>

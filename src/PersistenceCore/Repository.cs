@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wb.Domain;
+using Wb.DomainCore;
 
-namespace Wb.Persistence
+namespace Wb.PersistenceCore
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {

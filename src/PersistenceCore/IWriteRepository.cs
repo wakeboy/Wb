@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Wb.Domain;
+using Wb.DomainCore;
 
-namespace Wb.Persistence
+namespace Wb.PersistenceCore
 {
     public interface IWriteRepository<TEntity> where TEntity : Entity
     {

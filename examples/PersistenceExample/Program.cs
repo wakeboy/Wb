@@ -1,4 +1,4 @@
-﻿using Wb.Core;
+using Wb.Core;
 using System;
 using Autofac;
 using Wb.PersistenceExample;
@@ -12,7 +12,6 @@ namespace PersistenceExample
             var builder = new ContainerBuilder();
             Bootstrap.RegisterAutofac(builder);
             var container = builder.Build();
-
 
             using (var scope = container.BeginLifetimeScope())
             {

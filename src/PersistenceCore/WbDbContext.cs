@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Reflection;
-using Wb.Domain;
+using Wb.DomainCore;
 
-namespace Wb.Persistence
+namespace Wb.PersistenceCore
 {
     public class WbDbContext<TEntity> : DbContext where TEntity : Entity
     {
