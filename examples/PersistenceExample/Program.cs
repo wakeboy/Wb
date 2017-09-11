@@ -18,7 +18,7 @@ namespace PersistenceExample
                 var app = container.Resolve<IApplication>();
                 app.Start();
             }
-
+            
             Console.ReadKey();
         }
     }
